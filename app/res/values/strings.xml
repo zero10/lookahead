@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello, Android!  I am a string resource!</string>
+    <string name="selfDestruct">Kaboom!</string>
     <string name="app_name">Lookahead</string>
+    <string name="log">Add Log</string>
+    <string name="gibberish">oogily oogily</string>
 </resources>
