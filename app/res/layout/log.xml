@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:orientation="vertical">
-        <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/logButton" android:text="@string/log" android:onClick="addLog"></Button>
-        <TextView android:layout_height="match_parent" android:text="TextView" android:layout_width="match_parent" android:id="@+id/logText"></TextView>
+        <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:onClick="addLog" android:id="@+id/buttonTest" android:text="@string/test"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/start" android:id="@+id/buttonStart" android:onClick="onClick"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:text="@string/stop" android:id="@+id/buttonStop" android:onClick="onClick"></Button>
+        <TextView android:layout_height="wrap_content" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="@string/supported"></TextView>
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:clickable="false" android:editable="false" android:enabled="true" android:id="@+id/textFieldSupported">
+            <requestFocus></requestFocus>
+        </EditText>
+        <TextView android:layout_width="match_parent" android:id="@+id/logText" android:layout_height="wrap_content" android:text="@string/numberOfAxis"></TextView>
+        <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:inputType="number" android:editable="false" android:clickable="false" android:id="@+id/textFieldNumAxis"></EditText>
+        <TableLayout android:layout_height="fill_parent" android:id="@+id/tableLayout1" android:layout_width="fill_parent" android:stretchColumns="1">
+            <TableRow>
+                <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/axis1"></TextView>
+                <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/zero" android:id="@+id/textViewAxis1"></TextView>
+            </TableRow>
+            <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:id="@+id/textView4" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/axis2"></TextView>
+                <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/zero" android:id="@+id/textViewAxis2"></TextView>
+            </TableRow>
+            <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:id="@+id/textView6" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/axis3"></TextView>
+                <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/zero" android:id="@+id/textViewAxis3"></TextView>
+            </TableRow>
+            <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content"></TableRow>
+        </TableLayout>
     </LinearLayout>

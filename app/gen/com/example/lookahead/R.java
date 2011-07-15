@@ -14,11 +14,25 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int button1=0x7f050003;
+        public static final int button1=0x7f050012;
+        public static final int buttonStart=0x7f050002;
+        public static final int buttonStop=0x7f050003;
+        public static final int buttonTest=0x7f050001;
         public static final int linearLayout1=0x7f050000;
-        public static final int logButton=0x7f050001;
-        public static final int logText=0x7f050002;
+        public static final int logText=0x7f050006;
+        public static final int tableLayout1=0x7f050008;
+        public static final int tableRow2=0x7f05000b;
+        public static final int tableRow3=0x7f05000e;
+        public static final int tableRow4=0x7f050011;
+        public static final int textFieldNumAxis=0x7f050007;
+        public static final int textFieldSupported=0x7f050005;
         public static final int textView1=0x7f050004;
+        public static final int textView2=0x7f050009;
+        public static final int textView4=0x7f05000c;
+        public static final int textView6=0x7f05000f;
+        public static final int textViewAxis1=0x7f05000a;
+        public static final int textViewAxis2=0x7f05000d;
+        public static final int textViewAxis3=0x7f050010;
     }
     public static final class layout {
         public static final int log=0x7f030000;
@@ -26,9 +40,18 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040002;
+        public static final int axis1=0x7f04000a;
+        public static final int axis2=0x7f04000b;
+        public static final int axis3=0x7f04000c;
         public static final int gibberish=0x7f040004;
         public static final int hello=0x7f040000;
         public static final int log=0x7f040003;
+        public static final int numberOfAxis=0x7f040009;
         public static final int selfDestruct=0x7f040001;
+        public static final int start=0x7f040005;
+        public static final int stop=0x7f040006;
+        public static final int supported=0x7f040008;
+        public static final int test=0x7f040007;
+        public static final int zero=0x7f04000d;
     }
 }

@@ -5,4 +5,13 @@
     <string name="app_name">Lookahead</string>
     <string name="log">Add Log</string>
     <string name="gibberish">oogily oogily</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="test">Test</string>
+    <string name="supported">Supported:</string>
+    <string name="numberOfAxis">Number of Axis:</string>
+    <string name="axis1">Axis 1:</string>
+    <string name="axis2">Axis 2:</string>
+    <string name="axis3">Axis 3:</string>
+    <string name="zero">0</string>
 </resources>
