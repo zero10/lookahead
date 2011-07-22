@@ -1,5 +1,6 @@
 package com.example.lookahead;
 
+import java.util.Calendar;
 import java.util.List;
 
 import android.app.Activity;
@@ -9,6 +10,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,6 +25,10 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
 	TextView axis1 = null;
 	TextView axis2 = null;
 	TextView axis3 = null;
+	TextView intervalTextView = null;
+	TextView minimumTimeTextView = null;
+	long lastUpdate;
+	long minTime;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +38,19 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
         axis1 = (TextView) findViewById(R.id.textViewAxis1);
         axis2 = (TextView) findViewById(R.id.textViewAxis2);
         axis3 = (TextView) findViewById(R.id.textViewAxis3);
+        intervalTextView = (TextView) findViewById(R.id.textViewInterval);
+        minimumTimeTextView = (TextView) findViewById(R.id.textViewMinimumTime);
 		axis1.setText("X: ");
 		axis2.setText("Y: ");
 		axis2.setText("Z: ");
-		List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
+		minTime = -1;
+		/*List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
 		TextView sensorText = (TextView) findViewById(R.id.textViewSensors);
 		sensorText.setText("");
 		for (int i = 0;i < sensors.size();i++)
 		{
 			sensorText.setText(sensorText.getText() + sensors.get(i).getName() + "\n");			
-		}
+		}*/
     }
     
     public void onClick(View view)
@@ -67,21 +76,33 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
 
     public void onStop() {
     	sensorManager.unregisterListener(this);
+		minimumTimeTextView.setText("0 msec");
+		intervalTextView.setText("0 msec");
+    	minTime = -1;
     	super.onStop();
     }
     
     public void onResume() {
     	super.onResume();
     	sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    	lastUpdate = System.currentTimeMillis();
     }	
     
     public void onSensorChanged(SensorEvent sensorEvent) {
     	 Log.d(TAG, "onSensorChanged: " + sensorEvent.sensor.getName() + ", x: " + 
     	 	 sensorEvent.values[0] + ", y: " + sensorEvent.values[1] + ", z: " + sensorEvent.values[2]);
+    	 long interval = System.currentTimeMillis() - lastUpdate;
+    	 if (minTime < 0)
+    		 minTime = interval;
+    	 else if (interval < minTime)
+    		 minTime = interval;
+    	 lastUpdate = System.currentTimeMillis();
     	 synchronized (this) {
     		axis1.setText("X: " + sensorEvent.values[0]);
     		axis2.setText("Y: " + sensorEvent.values[1]);
-    		axis3.setText("Z: " + sensorEvent.values[2]);    		
+    		axis3.setText("Z: " + sensorEvent.values[2]);    	
+    		intervalTextView.setText(interval + " msec");
+    		minimumTimeTextView.setText(minTime + " msec");
     	}
     	 
     }

@@ -14,4 +14,6 @@
     <string name="axis2">Axis 2:</string>
     <string name="axis3">Axis 3:</string>
     <string name="zero">0</string>
+    <string name="timeSinceLastUpdate">Time since last update:</string>
+    <string name="minimumTime">Minimum time:</string>
 </resources>

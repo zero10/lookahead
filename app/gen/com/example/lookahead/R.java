@@ -14,13 +14,14 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int button1=0x7f050013;
+        public static final int button1=0x7f050017;
         public static final int buttonStart=0x7f050002;
         public static final int buttonStop=0x7f050003;
         public static final int buttonTest=0x7f050001;
         public static final int linearLayout1=0x7f050000;
         public static final int logText=0x7f050006;
         public static final int tableLayout1=0x7f050008;
+        public static final int tableRow1=0x7f050014;
         public static final int tableRow2=0x7f05000b;
         public static final int tableRow3=0x7f05000e;
         public static final int tableRow4=0x7f050011;
@@ -28,11 +29,14 @@ public final class R {
         public static final int textFieldSupported=0x7f050005;
         public static final int textView1=0x7f050004;
         public static final int textView2=0x7f050009;
+        public static final int textView3=0x7f050015;
         public static final int textView4=0x7f05000c;
         public static final int textView6=0x7f05000f;
         public static final int textViewAxis1=0x7f05000a;
         public static final int textViewAxis2=0x7f05000d;
         public static final int textViewAxis3=0x7f050010;
+        public static final int textViewInterval=0x7f050013;
+        public static final int textViewMinimumTime=0x7f050016;
         public static final int textViewSensors=0x7f050012;
     }
     public static final class layout {
@@ -47,12 +51,14 @@ public final class R {
         public static final int gibberish=0x7f040004;
         public static final int hello=0x7f040000;
         public static final int log=0x7f040003;
+        public static final int minimumTime=0x7f04000f;
         public static final int numberOfAxis=0x7f040009;
         public static final int selfDestruct=0x7f040001;
         public static final int start=0x7f040005;
         public static final int stop=0x7f040006;
         public static final int supported=0x7f040008;
         public static final int test=0x7f040007;
+        public static final int timeSinceLastUpdate=0x7f04000e;
         public static final int zero=0x7f04000d;
     }
 }

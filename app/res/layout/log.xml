@@ -23,7 +23,12 @@
                 <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/zero" android:id="@+id/textViewAxis3"></TextView>
             </TableRow>
             <TableRow android:id="@+id/tableRow4" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="fill">
-                <TextView android:textAppearance="?android:attr/textAppearanceSmall" android:text="TextView" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/textViewSensors"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/textViewSensors" android:text="@string/timeSinceLastUpdate"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceSmall" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="right" android:text="@string/zero" android:id="@+id/textViewInterval"></TextView>
+            </TableRow>
+            <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textAppearance="?android:attr/textAppearanceSmall" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView3" android:text="@string/minimumTime"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceSmall" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="right" android:id="@+id/textViewMinimumTime" android:text="@string/zero"></TextView>
             </TableRow>
         </TableLayout>
     </LinearLayout>
