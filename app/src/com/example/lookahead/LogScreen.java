@@ -17,11 +17,9 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class LogScreen extends Activity implements OnClickListener, SensorEventListener  {
+public class LogScreen extends Activity implements OnClickListener {
 	
 	private static final String TAG = "LogScreen";
-	SensorManager sensorManager;
-	Sensor accelerometer;
 	TextView axis1 = null;
 	TextView axis2 = null;
 	TextView axis3 = null;
@@ -33,8 +31,6 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log);
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         axis1 = (TextView) findViewById(R.id.textViewAxis1);
         axis2 = (TextView) findViewById(R.id.textViewAxis2);
         axis3 = (TextView) findViewById(R.id.textViewAxis3);
@@ -44,6 +40,7 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
 		axis2.setText("Y: ");
 		axis2.setText("Z: ");
 		minTime = -1;
+
 		/*List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
 		TextView sensorText = (TextView) findViewById(R.id.textViewSensors);
 		sensorText.setText("");
@@ -58,24 +55,22 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
    	 switch (view.getId()) {
 	    case R.id.buttonStart:
 	      Log.d(TAG, "onClick: starting service");
-	      startService(new Intent(this, GpsService.class));
+	      Intent startSvc = new Intent(this, GpsService.class);
+	      startService(startSvc);
 	      break;
 	    case R.id.buttonStop:
 	      Log.d(TAG, "onClick: stopping service");
-	      stopService(new Intent(this, GpsService.class));
+	      Intent stopSvc = new Intent(this, GpsService.class);
+	      stopService(stopSvc);
 	      break;
 	    case R.id.buttonTest:
-	    	EditText textFieldSupported = (EditText) findViewById(R.id.textFieldSupported);
 	    	EditText textFieldNumAxis = (EditText) findViewById(R.id.textFieldNumAxis);
-	    	if (accelerometer != null)
-	    		textFieldSupported.setText("Yes");
 	    	textFieldNumAxis.setText("3");
 	    	break;
 	    }
     }
 
     public void onStop() {
-    	sensorManager.unregisterListener(this);
 		minimumTimeTextView.setText("0 msec");
 		intervalTextView.setText("0 msec");
     	minTime = -1;
@@ -84,30 +79,5 @@ public class LogScreen extends Activity implements OnClickListener, SensorEventL
     
     public void onResume() {
     	super.onResume();
-    	sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-    	lastUpdate = System.currentTimeMillis();
     }	
-    
-    public void onSensorChanged(SensorEvent sensorEvent) {
-    	 Log.d(TAG, "onSensorChanged: " + sensorEvent.sensor.getName() + ", x: " + 
-    	 	 sensorEvent.values[0] + ", y: " + sensorEvent.values[1] + ", z: " + sensorEvent.values[2]);
-    	 long interval = System.currentTimeMillis() - lastUpdate;
-    	 if (minTime < 0)
-    		 minTime = interval;
-    	 else if (interval < minTime)
-    		 minTime = interval;
-    	 lastUpdate = System.currentTimeMillis();
-    	 synchronized (this) {
-    		axis1.setText("X: " + sensorEvent.values[0]);
-    		axis2.setText("Y: " + sensorEvent.values[1]);
-    		axis3.setText("Z: " + sensorEvent.values[2]);    	
-    		intervalTextView.setText(interval + " msec");
-    		minimumTimeTextView.setText(minTime + " msec");
-    	}
-    	 
-    }
-    
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-    	Log.d(TAG, "onAccuracyChanged: " + sensor.getName() + ", accuracy: " + accuracy);
-    }
 }
