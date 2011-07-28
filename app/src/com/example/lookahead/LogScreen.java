@@ -1,16 +1,8 @@
 package com.example.lookahead;
 
-import java.util.Calendar;
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,7 +30,7 @@ public class LogScreen extends Activity implements OnClickListener {
         minimumTimeTextView = (TextView) findViewById(R.id.textViewMinimumTime);
 		axis1.setText("X: ");
 		axis2.setText("Y: ");
-		axis2.setText("Z: ");
+		axis3.setText("Z: ");
 		minTime = -1;
 
 		/*List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
