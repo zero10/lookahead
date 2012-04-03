@@ -1,9 +1,9 @@
 Lookahead
----
+===
 This is an open-source app for data logging using your cellphone's hardware during competitive driving events (such as an autocross).
 
 How to import into Eclipse
-===
+---
 1. Install [the EGit plugin](http://www.eclipse.org/egit/) for Eclipse.
 1. Inside your workspace, right click in Package Explorer, and select `Team` -> `Import`.
 1. Select `Git` -> `Projects from Git`
