@@ -11,3 +11,5 @@ How to import into Eclipse
 1. Set protocol to SSH, click next
 1. Check out the master branch and you're ready to go.
 1. If it doesn't build right away (returning a ton of errors), try `Project` -> `Clean`.
+
+Depending on how your Android SDK is set up, you may need to install additional SDK target versions in order to build the project.
